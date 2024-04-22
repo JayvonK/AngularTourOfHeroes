@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IHero } from '../HeroInterface';
 import { HEROES } from '../mock-heroes';
-import { NgFor } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-heroes',
@@ -10,5 +10,9 @@ import { NgFor } from '@angular/common';
 })
 
 export class HeroesComponent {
-  heroes = HEROES
+  heroes = HEROES;
+  selectedHero?: IHero;
+  onSelect(hero: IHero): void {
+    this.selectedHero = hero;
+  }
 }
